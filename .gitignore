@@ -1,0 +1,33 @@
+# Python environments and generated files
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Local credentials and configuration
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Local databases and runtime data
+*.db
+*.sqlite
+*.sqlite3
+uploads/
+data/private/
+
+# Face photos and other local media
+*.jpg
+*.jpeg
+*.png
+*.bmp
+*.webp
+
+# Editor and OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
