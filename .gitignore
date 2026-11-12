@@ -4,6 +4,7 @@ venv/
 __pycache__/
 *.py[cod]
 .pytest_cache/
+.tmp/
 
 # Local credentials and configuration
 .env
@@ -25,6 +26,10 @@ data/private/
 *.png
 *.bmp
 *.webp
+!frontend/*.png
+!frontend/*.jpg
+!frontend/*.jpeg
+!frontend/*.webp
 
 # Editor and OS files
 .vscode/

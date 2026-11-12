@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>云端人脸签到</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <main class="shell">
+    <header class="hero">
+      <span class="eyebrow">CLOUD FACE CHECK-IN</span>
+      <h1>人脸签到</h1>
+      <p>拍摄清晰正面照片，云端识别后立即反馈签到结果。</p>
+    </header>
+
+    <nav class="tabs" aria-label="功能导航">
+      <button class="active" data-tab="checkin">签到</button>
+      <button data-tab="register">注册</button>
+      <button data-tab="account">登录与记录</button>
+    </nav>
+
+    <section id="checkin" class="panel active">
+      <div class="panel-heading"><span class="step">01</span><h2>拍照签到</h2></div>
+      <p class="hint">无需登录。请让画面中只有你一人，光线均匀，面部无遮挡。</p>
+      <form id="checkin-form">
+        <label class="upload" for="checkin-photo">
+          <span class="upload-icon">◎</span>
+          <strong>拍照或选择照片</strong>
+          <small>JPG / PNG，最大 2 MB</small>
+          <input id="checkin-photo" name="photo" type="file" accept="image/jpeg,image/png" capture="user" required>
+        </label>
+        <img id="checkin-preview" class="preview" alt="签到照片预览" hidden>
+        <button class="primary" type="submit">提交签到</button>
+      </form>
+      <div id="checkin-result" class="result" role="status" hidden></div>
+    </section>
+
+    <section id="register" class="panel">
+      <div class="panel-heading"><span class="step">02</span><h2>注册并录入人脸</h2></div>
+      <p class="hint">首次使用时填写基本信息，上传一张清晰的单人正面照片。</p>
+      <form id="register-form">
+        <label>姓名<input name="full_name" autocomplete="name" required maxlength="40"></label>
+        <label>学号<input name="student_id" required maxlength="40"></label>
+        <label>用户名<input name="username" autocomplete="username" required maxlength="40"></label>
+        <label>密码<input name="password" type="password" autocomplete="new-password" required minlength="8"></label>
+        <label>标准人脸照片<input name="photo" type="file" accept="image/jpeg,image/png" capture="user" required></label>
+        <button class="primary" type="submit">注册并录入</button>
+      </form>
+      <div id="register-result" class="result" role="status" hidden></div>
+    </section>
+
+    <section id="account" class="panel">
+      <div class="panel-heading"><span class="step">03</span><h2>账号与签到记录</h2></div>
+      <div id="signed-out">
+        <form id="login-form">
+          <label>用户名<input name="username" autocomplete="username" required></label>
+          <label>密码<input name="password" type="password" autocomplete="current-password" required></label>
+          <button class="primary" type="submit">登录</button>
+        </form>
+      </div>
+      <div id="signed-in" hidden>
+        <div class="account-row"><strong id="welcome"></strong><button id="logout" class="text-button">注销</button></div>
+        <h3>我的签到记录</h3>
+        <div id="records" class="records"></div>
+        <div id="admin-area" hidden>
+          <h3>已登记人员</h3>
+          <div id="admin-users" class="records"></div>
+          <h3>全部签到记录</h3>
+          <div id="admin-records" class="records"></div>
+        </div>
+      </div>
+      <div id="account-result" class="result" role="status" hidden></div>
+    </section>
+
+    <footer>华为云 FRS · 课程实验项目</footer>
+  </main>
+  <script src="/static/app.js" defer></script>
+</body>
+</html>
